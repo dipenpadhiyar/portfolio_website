@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import profilePic from "./assets/profile.jpg"; // Add your profile photo in the assets folder
-import ReactGA from 'react-ga'; // Import react-ga
+import ReactGA from 'react-ga4';
 
 const TRACKING_ID = "G-1Q70LEMHVB"; // Replace with your Google Analytics tracking ID
 
 const App = () => {
   useEffect(() => {
     ReactGA.initialize(TRACKING_ID);
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname + window.location.search });
   }, []);
 
   return (
